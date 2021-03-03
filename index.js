@@ -25,7 +25,7 @@ io.on("connection", (socket) => {
     const user = getUser(socket.id);
     io.in(user.room).emit("message", { user: user.name, text: message });
   });
-  socket.on("disconnet", () => {
+  socket.on("disconnect", () => {
     const user = deleteUser(socket.id);
     if (user) {
       io.in(user.room).emit("message", {
